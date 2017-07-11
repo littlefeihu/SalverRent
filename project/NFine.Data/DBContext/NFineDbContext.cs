@@ -1,8 +1,8 @@
 ﻿/*******************************************************************************
- * Copyright © 2016 NFine.Framework 版权所有
- * Author: NFine
- * Description: NFine快速开发平台
- * Website：http://www.nfine.cn
+ * Copyright © 2016 东青信息版权所有
+ * Author: Allen
+ * 安徽东青信息软件开发组
+ * 
 *********************************************************************************/
 using System;
 using System.Data.Entity;

@@ -1,13 +1,18 @@
 (function ($) {
     $.nfinetab = {
         requestFullScreen: function () {
-            var de = document.documentElement;
-            if (de.requestFullscreen) {
-                de.requestFullscreen();
-            } else if (de.mozRequestFullScreen) {
-                de.mozRequestFullScreen();
-            } else if (de.webkitRequestFullScreen) {
-                de.webkitRequestFullScreen();
+            try {
+                var de = document.documentElement;
+                if (de.requestFullscreen) {
+                    de.requestFullscreen();
+                } else if (de.mozRequestFullScreen) {
+                    de.mozRequestFullScreen();
+                } else if (de.webkitRequestFullScreen) {
+                    de.webkitRequestFullScreen();
+                }
+
+            } catch (e) {
+                alert(e.message);
             }
         },
         exitFullscreen: function () {
@@ -150,6 +155,7 @@
             return false;
         },
         scrollTabRight: function () {
+
             var marginLeftVal = Math.abs(parseInt($('.page-tabs-content').css('margin-left')));
             var tabOuterWidth = $.nfinetab.calSumWidth($(".content-tabs").children().not(".menuTabs"));
             var visibleWidth = $(".content-tabs").outerWidth(true) - tabOuterWidth;
@@ -256,12 +262,13 @@
             });
             $('.tabCloseOther').on('click', $.nfinetab.closeOtherTabs);
             $('.fullscreen').on('click', function () {
+
                 if (!$(this).attr('fullscreen')) {
                     $(this).attr('fullscreen', 'true');
-                    requestFullScreen();
+                    $.nfinetab.requestFullScreen();
                 } else {
                     $(this).removeAttr('fullscreen')
-                    exitFullscreen();
+                    $.nfinetab.exitFullscreen();
                 }
             });
         }

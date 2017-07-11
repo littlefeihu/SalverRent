@@ -123,6 +123,8 @@
     <Compile Include="Areas\ReportManage\Controllers\EchartsController.cs" />
     <Compile Include="Areas\ReportManage\Controllers\HighchartsController.cs" />
     <Compile Include="Areas\ReportManage\ReportManageAreaRegistration.cs" />
+    <Compile Include="Areas\SalverManager\Controllers\SalverController.cs" />
+    <Compile Include="Areas\SalverManager\SalverManagerAreaRegistration.cs" />
     <Compile Include="Areas\SystemManage\Controllers\AreaController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\DutyController.cs" />
     <Compile Include="Areas\SystemManage\Controllers\ItemsDataController.cs" />
@@ -613,6 +615,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\SystemManage\Views\User\Info.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Salver\Details.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Salver\Form.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Salver\Index.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Salver\Info.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Salver\RevisePassword.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>
