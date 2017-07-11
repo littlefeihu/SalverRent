@@ -8,7 +8,7 @@ using System;
 
 namespace NFine.Domain.Entity.SystemManage
 {
-    public class RoleAuthorizeEntity : IEntity<RoleAuthorizeEntity>, ICreationAudited
+    public class RoleAuthorizeEntity : Entity<RoleAuthorizeEntity>, ICreationAudited
     {
         public string F_Id { get; set; }
         public int? F_ItemType { get; set; }

@@ -8,7 +8,7 @@ using System;
 
 namespace NFine.Domain.Entity.SystemSecurity
 {
-    public class LogEntity : IEntity<LogEntity>, ICreationAudited
+    public class LogEntity : Entity<LogEntity>, ICreationAudited
     {
         public string F_Id { get; set; }
         public DateTime? F_Date { get; set; }

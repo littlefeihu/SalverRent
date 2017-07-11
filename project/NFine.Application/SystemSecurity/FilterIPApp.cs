@@ -5,8 +5,8 @@
  * 
 *********************************************************************************/
 using NFine.Code;
-using NFine.Domain.Entity.SystemSecurity;
-using NFine.Domain.IRepository.SystemSecurity;
+using NFine.Data.Entity.SystemSecurity;
+using NFine.Data.IRepository.SystemSecurity;
 using NFine.Repository.SystemSecurity;
 using System.Collections.Generic;
 using System.Linq;

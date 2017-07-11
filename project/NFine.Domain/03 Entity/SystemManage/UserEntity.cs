@@ -1,14 +1,17 @@
-﻿/*******************************************************************************
+﻿using NFine.Domain.Entity.SalverManager;
+/*******************************************************************************
  * Copyright © 2016 东青信息版权所有
  * Author: Allen
  * 安徽东青信息软件开发组
  * 
 *********************************************************************************/
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace NFine.Domain.Entity.SystemManage
 {
-    public class UserEntity : IEntity<UserEntity>, ICreationAudited, IDeleteAudited, IModificationAudited
+    public class UserEntity : Entity<UserEntity>, ICreationAudited, IDeleteAudited, IModificationAudited
     {
         public string F_Id { get; set; }
         public string F_Account { get; set; }
@@ -38,5 +41,9 @@ namespace NFine.Domain.Entity.SystemManage
         public string F_LastModifyUserId { get; set; }
         public DateTime? F_DeleteTime { get; set; }
         public string F_DeleteUserId { get; set; }
+
+        public virtual ICollection<RentOrder> RentOrders { get; set; }
+
+        public virtual ICollection<Warehouse> Warehouses { get; set; }
     }
 }

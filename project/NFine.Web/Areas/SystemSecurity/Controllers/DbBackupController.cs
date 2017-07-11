@@ -6,7 +6,7 @@
 *********************************************************************************/
 using NFine.Application.SystemSecurity;
 using NFine.Code;
-using NFine.Domain.Entity.SystemSecurity;
+using NFine.Data.Entity.SystemSecurity;
 using System.Web.Mvc;
 
 namespace NFine.Web.Areas.SystemSecurity.Controllers

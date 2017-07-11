@@ -6,7 +6,7 @@
 *********************************************************************************/
 using NFine.Application.SystemManage;
 using NFine.Code;
-using NFine.Domain.Entity.SystemManage;
+using NFine.Data.Entity.SystemManage;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

@@ -4,7 +4,7 @@
  * 安徽东青信息软件开发组
  * 
 *********************************************************************************/
-using NFine.Domain.Entity.SystemSecurity;
+using NFine.Data.Entity.SystemSecurity;
 using System.Data.Entity.ModelConfiguration;
 
 namespace NFine.Mapping.SystemSecurity

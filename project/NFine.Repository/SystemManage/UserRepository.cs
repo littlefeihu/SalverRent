@@ -6,8 +6,8 @@
 *********************************************************************************/
 using NFine.Code;
 using NFine.Data;
-using NFine.Domain.Entity.SystemManage;
-using NFine.Domain.IRepository.SystemManage;
+using NFine.Data.Entity.SystemManage;
+using NFine.Data.IRepository.SystemManage;
 using NFine.Repository.SystemManage;
 
 namespace NFine.Repository.SystemManage
@@ -25,6 +25,7 @@ namespace NFine.Repository.SystemManage
         }
         public void SubmitForm(UserEntity userEntity, UserLogOnEntity userLogOnEntity, string keyValue)
         {
+
             using (var db = new RepositoryBase().BeginTrans())
             {
                 if (!string.IsNullOrEmpty(keyValue))

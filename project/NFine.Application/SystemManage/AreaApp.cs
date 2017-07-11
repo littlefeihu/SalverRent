@@ -1,6 +1,6 @@
 ﻿
-using NFine.Domain.Entity.SystemManage;
-using NFine.Domain.IRepository.SystemManage;
+using NFine.Data.Entity.SystemManage;
+using NFine.Data.IRepository.SystemManage;
 using NFine.Repository.SystemManage;
 using System;
 using System.Collections.Generic;

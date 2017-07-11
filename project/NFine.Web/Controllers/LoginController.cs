@@ -4,14 +4,14 @@
  * 安徽东青信息软件开发组
  * 
 *********************************************************************************/
-using NFine.Domain.Entity.SystemSecurity;
+using NFine.Data.Entity.SystemSecurity;
 using NFine.Application.SystemSecurity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using NFine.Domain.Entity.SystemManage;
+using NFine.Data.Entity.SystemManage;
 using NFine.Application.SystemManage;
 using NFine.Code;
 using NFine.Application;

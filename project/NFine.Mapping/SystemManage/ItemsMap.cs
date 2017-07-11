@@ -4,7 +4,7 @@
  * 安徽东青信息软件开发组
  * 
 *********************************************************************************/
-using NFine.Domain.Entity.SystemManage;
+using NFine.Data.Entity.SystemManage;
 using System.Data.Entity.ModelConfiguration;
 
 namespace NFine.Mapping.SystemManage

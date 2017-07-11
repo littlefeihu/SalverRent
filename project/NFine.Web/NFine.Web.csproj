@@ -429,13 +429,13 @@
       <Project>{db19ce03-c307-43fe-a209-08aa4ae10e21}</Project>
       <Name>NFine.Code</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NFine.Data\NFine.Data.csproj">
+      <Project>{f71003e8-a836-48f4-9df6-df9095cebd18}</Project>
+      <Name>NFine.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NFine.Domain\NFine.Domain.csproj">
       <Project>{7dc886cd-b8a0-44e8-aadd-57fcb0cfecb8}</Project>
       <Name>NFine.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NFine.Mapping\NFine.Mapping.csproj">
-      <Project>{4e642cbe-f6c5-4cb9-9474-6b349652fe77}</Project>
-      <Name>NFine.Mapping</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -620,6 +620,7 @@
     <Content Include="Areas\SalverManager\Views\Salver\Index.cshtml" />
     <Content Include="Areas\SalverManager\Views\Salver\Info.cshtml" />
     <Content Include="Areas\SalverManager\Views\Salver\RevisePassword.cshtml" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>

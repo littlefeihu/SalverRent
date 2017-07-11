@@ -8,7 +8,7 @@ using System;
 
 namespace NFine.Domain.Entity.SystemManage
 {
-    public class ModuleEntity : IEntity<ModuleEntity>, ICreationAudited, IModificationAudited, IDeleteAudited
+    public class ModuleEntity : Entity<ModuleEntity>, ICreationAudited, IModificationAudited, IDeleteAudited
     {
         public string F_Id { get; set; }
         public string F_ParentId { get; set; }
