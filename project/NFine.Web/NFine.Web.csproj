@@ -585,9 +585,6 @@
     <Content Include="Views\Home\Default.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\About.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Areas\SystemSecurity\Views\Log\RemoveLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -621,6 +618,7 @@
     <Content Include="Areas\SalverManager\Views\Salver\Info.cshtml" />
     <Content Include="Areas\SalverManager\Views\Salver\RevisePassword.cshtml" />
     <Content Include="packages.config" />
+    <Content Include="Areas\SalverManager\Views\Salver\Web.config" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
   </ItemGroup>
   <PropertyGroup>

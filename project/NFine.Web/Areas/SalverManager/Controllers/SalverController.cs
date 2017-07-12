@@ -1,5 +1,6 @@
 ﻿using NFine.Application.SystemManage;
 using NFine.Code;
+using NFine.Data.Entity.SalverManager;
 using NFine.Data.Entity.SystemManage;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,7 @@ namespace NFine.Web.Areas.SalverManager.Controllers
 {
     public class SalverController : ControllerBase
     {
-        private UserApp userApp = new UserApp();
-        private UserLogOnApp userLogOnApp = new UserLogOnApp();
+        private SalverApp salverApp = new SalverApp();
 
         [HttpGet]
         [HandlerAjaxOnly]
@@ -19,7 +19,7 @@ namespace NFine.Web.Areas.SalverManager.Controllers
         {
             var data = new
             {
-                rows = userApp.GetList(pagination, keyword),
+                rows = salverApp.GetList(pagination, keyword),
                 total = pagination.total,
                 page = pagination.page,
                 records = pagination.records
@@ -28,65 +28,27 @@ namespace NFine.Web.Areas.SalverManager.Controllers
         }
         [HttpGet]
         [HandlerAjaxOnly]
-        public ActionResult GetFormJson(string keyValue)
+        public ActionResult GetFormJson(int keyValue)
         {
-            var data = userApp.GetForm(keyValue);
+            var data = salverApp.GetForm(keyValue);
             return Content(data.ToJson());
         }
         [HttpPost]
         [HandlerAjaxOnly]
         [ValidateAntiForgeryToken]
-        public ActionResult SubmitForm(UserEntity userEntity, UserLogOnEntity userLogOnEntity, string keyValue)
+        public ActionResult SubmitForm(SalverEntity userEntity, string keyValue)
         {
-            userApp.SubmitForm(userEntity, userLogOnEntity, keyValue);
+            salverApp.SubmitForm(userEntity, keyValue);
             return Success("操作成功。");
         }
         [HttpPost]
         [HandlerAuthorize]
         [HandlerAjaxOnly]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteForm(string keyValue)
+        public ActionResult DeleteForm(int keyValue)
         {
-            userApp.DeleteForm(keyValue);
+            salverApp.DeleteForm(keyValue);
             return Success("删除成功。");
-        }
-        [HttpGet]
-        public ActionResult RevisePassword()
-        {
-            return View();
-        }
-        [HttpPost]
-        [HandlerAjaxOnly]
-        [HandlerAuthorize]
-        [ValidateAntiForgeryToken]
-        public ActionResult SubmitRevisePassword(string userPassword, string keyValue)
-        {
-            userLogOnApp.RevisePassword(userPassword, keyValue);
-            return Success("重置密码成功。");
-        }
-        [HttpPost]
-        [HandlerAjaxOnly]
-        [HandlerAuthorize]
-        [ValidateAntiForgeryToken]
-        public ActionResult DisabledAccount(string keyValue)
-        {
-            UserEntity userEntity = new UserEntity();
-            userEntity.F_Id = keyValue;
-            userEntity.F_EnabledMark = false;
-            userApp.UpdateForm(userEntity);
-            return Success("账户禁用成功。");
-        }
-        [HttpPost]
-        [HandlerAjaxOnly]
-        [HandlerAuthorize]
-        [ValidateAntiForgeryToken]
-        public ActionResult EnabledAccount(string keyValue)
-        {
-            UserEntity userEntity = new UserEntity();
-            userEntity.F_Id = keyValue;
-            userEntity.F_EnabledMark = true;
-            userApp.UpdateForm(userEntity);
-            return Success("账户启用成功。");
         }
 
         [HttpGet]

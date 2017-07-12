@@ -72,6 +72,7 @@
     <Compile Include="Entity\SystemSecurity\DbBackupEntity.cs" />
     <Compile Include="Entity\SystemSecurity\FilterIPEntity.cs" />
     <Compile Include="Entity\SystemSecurity\LogEntity.cs" />
+    <Compile Include="IRepository\SalverManager\ISalverRepository.cs" />
     <Compile Include="IRepository\SystemManage\IAreaRepository.cs" />
     <Compile Include="IRepository\SystemManage\IItemsDetailRepository.cs" />
     <Compile Include="IRepository\SystemManage\IItemsRepository.cs" />

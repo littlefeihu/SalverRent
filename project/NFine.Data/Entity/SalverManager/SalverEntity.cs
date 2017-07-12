@@ -22,6 +22,11 @@ namespace NFine.Data.Entity.SalverManager
         /// </summary>
         public string F_Status { get; set; }
 
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string F_Remark { get; set; }
+
         public DateTime? F_CreatorTime { get; set; }
         public string F_CreatorUserId { get; set; }
 

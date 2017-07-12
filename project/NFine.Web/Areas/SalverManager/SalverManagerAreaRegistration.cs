@@ -15,10 +15,11 @@ namespace NFine.Web.Areas.SalverManager
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "SalverManager_default",
-                "SalverManager/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
-            );
+            this.AreaName + "_Default",
+            this.AreaName + "/{controller}/{action}/{id}",
+            new { area = this.AreaName, controller = "Home", action = "Index", id = UrlParameter.Optional },
+            new string[] { "NFine.Web.Areas." + this.AreaName + ".Controllers" }
+          );
         }
     }
 }
