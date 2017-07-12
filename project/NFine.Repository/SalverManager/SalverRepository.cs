@@ -26,11 +26,11 @@ namespace NFine.Repository.SalverManager
             }
         }
 
-        public void SubmitForm(SalverEntity userEntity, string keyValue)
+        public void SubmitForm(SalverEntity userEntity, int? keyValue)
         {
             using (var db = new RepositoryBase().BeginTrans())
             {
-                if (!string.IsNullOrEmpty(keyValue))
+                if (keyValue.HasValue)
                 {
                     db.Update(userEntity);
                 }

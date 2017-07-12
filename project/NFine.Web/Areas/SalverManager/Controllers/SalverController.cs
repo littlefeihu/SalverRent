@@ -2,6 +2,8 @@
 using NFine.Code;
 using NFine.Data.Entity.SalverManager;
 using NFine.Data.Entity.SystemManage;
+using NFine.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -36,8 +38,20 @@ namespace NFine.Web.Areas.SalverManager.Controllers
         [HttpPost]
         [HandlerAjaxOnly]
         [ValidateAntiForgeryToken]
-        public ActionResult SubmitForm(SalverEntity userEntity, string keyValue)
+        public ActionResult SubmitForm(SalverEntity userEntity, int? keyValue)
         {
+            if (!keyValue.HasValue)
+            {
+                userEntity.F_Status = SalverStatus.待租赁.ToString();
+                userEntity.F_CreatorTime = DateTime.Now;
+                userEntity.F_CreatorUserId = CurrentUser.UserId;
+            }
+            else
+            {
+                userEntity.F_LastModifyTime = DateTime.Now;
+                userEntity.F_LastModifyUserId = CurrentUser.UserId;
+            }
+
             salverApp.SubmitForm(userEntity, keyValue);
             return Success("操作成功。");
         }

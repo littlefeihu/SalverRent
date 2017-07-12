@@ -39,7 +39,7 @@ namespace NFine.Application.SystemManage
         {
             service.DeleteForm(keyValue);
         }
-        public void SubmitForm(SalverEntity salverEntity, string keyValue)
+        public void SubmitForm(SalverEntity salverEntity, int? keyValue)
         {
             service.SubmitForm(salverEntity, keyValue);
         }

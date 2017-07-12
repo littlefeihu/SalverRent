@@ -40,5 +40,13 @@ namespace NFine.Web
         {
             return Content(new AjaxResult { state = ResultType.error.ToString(), message = message }.ToJson());
         }
+
+        protected virtual OperatorModel CurrentUser
+        {
+            get
+            {
+                return NFine.Code.OperatorProvider.Provider.GetCurrent();
+            }
+        }
     }
 }

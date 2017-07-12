@@ -10,6 +10,6 @@ namespace NFine.Data.IRepository.SalverManager
     public interface ISalverRepository : IRepositoryBase<SalverEntity>
     {
         void DeleteForm(int keyValue);
-        void SubmitForm(SalverEntity userEntity, string keyValue);
+        void SubmitForm(SalverEntity userEntity, int? keyValue);
     }
 }
