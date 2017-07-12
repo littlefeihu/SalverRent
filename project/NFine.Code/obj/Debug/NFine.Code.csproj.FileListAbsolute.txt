@@ -12,5 +12,6 @@ E:\工作\SalverRent\project\NFine.Code\bin\Debug\Newtonsoft.Json.xml
 E:\工作\SalverRent\project\NFine.Code\bin\Debug\NPOI.xml
 E:\工作\SalverRent\project\NFine.Code\bin\Debug\NPOI.OOXML.xml
 E:\工作\SalverRent\project\NFine.Code\bin\Debug\NPOI.OpenXml4Net.xml
+E:\工作\SalverRent\project\NFine.Code\obj\Debug\NFine.Code.csprojResolveAssemblyReference.cache
 E:\工作\SalverRent\project\NFine.Code\obj\Debug\NFine.Code.dll
 E:\工作\SalverRent\project\NFine.Code\obj\Debug\NFine.Code.pdb
