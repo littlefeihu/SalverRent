@@ -26,17 +26,23 @@ namespace NFine.Repository.SalverManager
             }
         }
 
-        public void SubmitForm(SalverEntity userEntity, int? keyValue)
+        public void SubmitForm(SalverEntity salverEntity, int? keyValue)
         {
             using (var db = new RepositoryBase().BeginTrans())
             {
                 if (keyValue.HasValue)
                 {
-                    db.Update(userEntity);
+                    var salver = db.FindEntity<SalverEntity>(o => o.F_Id == keyValue);
+                    salver.F_Remark = salver.F_Remark;
+                    salver.F_SalverMark = salver.F_SalverMark;
+                    salver.F_SalverName = salver.F_SalverName;
+                    salver.F_LastModifyTime = salver.F_LastModifyTime;
+                    salver.F_LastModifyUserId = salver.F_LastModifyUserId;
+                    db.Update(salverEntity);
                 }
                 else
                 {
-                    db.Insert(userEntity);
+                    db.Insert(salverEntity);
                 }
                 db.Commit();
             }

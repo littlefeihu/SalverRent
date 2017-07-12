@@ -45,6 +45,8 @@ namespace NFine.Web.Areas.SalverManager.Controllers
                 userEntity.F_Status = SalverStatus.待租赁.ToString();
                 userEntity.F_CreatorTime = DateTime.Now;
                 userEntity.F_CreatorUserId = CurrentUser.UserId;
+                userEntity.F_LastModifyTime = DateTime.Now;
+                userEntity.F_LastModifyUserId = CurrentUser.UserId;
             }
             else
             {
