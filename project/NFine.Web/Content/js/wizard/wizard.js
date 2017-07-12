@@ -6,7 +6,7 @@
         this.currentStep = 1;
         this.numSteps = this.$element.find("li").length;
         /*Customized to Enable Out Of Wizard Buttons*/
-        this.$prevBtn = $('#'+this.$element[0].id+'-actions').find("a.btn-prev");
+        this.$prevBtn = $('#' + this.$element[0].id + '-actions').find("a.btn-prev");
         this.$nextBtn = $('#' + this.$element[0].id + '-actions').find("a.btn-next");
         /*End Customized to Enable Out Of Wizard Buttons*/
         d = this.$nextBtn.children().detach();
@@ -69,7 +69,7 @@
                 this.$element.trigger(f, {
                     step: this.currentStep,
                     direction: "previous",
-                    currentStep:this.currentStep-1
+                    currentStep: this.currentStep - 1
                 });
                 if (f.isDefaultPrevented()) {
                     return

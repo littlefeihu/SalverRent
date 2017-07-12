@@ -39,6 +39,6 @@ namespace NFine.Data.Entity.SalverManager
 
         public virtual ICollection<SalverPosition> SalverPositions { get; set; }
 
-
+        public virtual ICollection<RentOrderItem> RentOrderItems { get; set; }
     }
 }

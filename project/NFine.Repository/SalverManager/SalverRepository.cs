@@ -38,7 +38,7 @@ namespace NFine.Repository.SalverManager
                     salver.F_SalverName = salver.F_SalverName;
                     salver.F_LastModifyTime = salver.F_LastModifyTime;
                     salver.F_LastModifyUserId = salver.F_LastModifyUserId;
-                    db.Update(salverEntity);
+                    db.Update(salver);
                 }
                 else
                 {
