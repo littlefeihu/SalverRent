@@ -21,11 +21,11 @@
         <div class="container">
             <div class="logo">
                 <i class="fa fa-modx"></i>
-                <h1><span>合肥学院</span>智能托盘</h1>
+                <h1><span>注册</span>合肥学院智能托盘账号</h1>
             </div>
             <form class="form">
                 <div class="row">
-                    <input id="txt_account" type="text" placeholder="用户名/手机号/邮箱">
+                    <input id="txt_account" type="text" placeholder="手机号">
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="row">
@@ -33,7 +33,7 @@
                     <i class="fa fa-key"></i>
                 </div>
                 <div class="row">
-                    <input id="txt_password1" type="password" placeholder="重复密码">
+                    <input id="txt_password1" type="password" placeholder="确认密码">
                     <i class="fa fa-key"></i>
                 </div>
                 <div class="row">
@@ -46,7 +46,8 @@
                 <div class="row">
                     <button id="register_button" type="button"><span>注册</span></button>
                 </div>
-                <div class="row">
+                <div class="row" style="text-align:right;margin-top:2px;">
+                    <a href="/Login/Index" style="text-decoration: none;">直接登录</a>
                 </div>
             </form>
             <div class="login_tips"></div>
@@ -104,15 +105,15 @@
                     } else {
                         $("#register_button").attr('disabled', 'disabled').find('span').html("loading...");
                         $.ajax({
-                            url: "/Login/CheckLogin",
-                            data: { username: $.trim($username.val()), password: $.md5($.trim($password.val())), code: $.trim($code.val()) },
+                            url: "/Login/CheckRegister",
+                            data: { username: $.trim($username.val()), password: $.trim($password.val()), code: $.trim($code.val()) },
                             type: "post",
                             dataType: "json",
                             success: function (data) {
                                 if (data.state == "success") {
                                     $("#register_button").find('span').html("注册成功，正在跳转...");
                                     window.setTimeout(function () {
-                                        window.location.href = "/Home/Index";
+                                        window.location.href = "/login/Index";
                                     }, 500);
                                 } else {
                                     $("#register_button").removeAttr('disabled').find('span').html("注册");
@@ -138,19 +139,19 @@
                     if (login_error != null) {
                         switch (login_error) {
                             case "overdue":
-                                $.login.formMessage("系统登录已超时,请重新登录");
+                                $.register.formMessage("系统登录已超时,请重新登录");
                                 break;
                             case "OnLine":
-                                $.login.formMessage("您的帐号已在其它地方登录,请重新登录");
+                                $.register.formMessage("您的帐号已在其它地方登录,请重新登录");
                                 break;
                             case "-1":
-                                $.login.formMessage("系统未知错误,请重新登录");
+                                $.register.formMessage("系统未知错误,请重新登录");
                                 break;
                         }
                         top.$.cookie('nfine_login_error', '', { path: "/", expires: -1 });
                     }
                     $("#register_button").click(function () {
-                        $.login.registerClick();
+                        $.register.registerClick();
                     });
                     document.onkeydown = function (e) {
                         if (!e) e = window.event;
@@ -162,7 +163,7 @@
                 }
             };
             $(function () {
-                $.login.init();
+                $.register.init();
             });
         })(jQuery);
     </script>

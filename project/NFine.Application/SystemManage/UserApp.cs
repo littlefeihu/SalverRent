@@ -38,6 +38,12 @@ namespace NFine.Application.SystemManage
         {
             service.DeleteForm(keyValue);
         }
+
+        public bool Exists(string username)
+        {
+            return service.FindEntity(o => o.F_Account == username) != null;
+        }
+
         public void SubmitForm(UserEntity userEntity, UserLogOnEntity userLogOnEntity, string keyValue)
         {
             if (!string.IsNullOrEmpty(keyValue))

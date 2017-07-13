@@ -123,6 +123,8 @@
     <Compile Include="Areas\ReportManage\Controllers\EchartsController.cs" />
     <Compile Include="Areas\ReportManage\Controllers\HighchartsController.cs" />
     <Compile Include="Areas\ReportManage\ReportManageAreaRegistration.cs" />
+    <Compile Include="Areas\SalverManager\Controllers\RentalController.cs" />
+    <Compile Include="Areas\SalverManager\Controllers\WarehouseController.cs" />
     <Compile Include="Areas\SalverManager\Controllers\SalverController.cs" />
     <Compile Include="Areas\SalverManager\SalverManagerAreaRegistration.cs" />
     <Compile Include="Areas\SystemManage\Controllers\AreaController.cs" />
@@ -619,7 +621,17 @@
     <Content Include="Areas\SalverManager\Views\Salver\RevisePassword.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Areas\SalverManager\Views\Salver\Web.config" />
+    <Content Include="Areas\SalverManager\Views\Rental\Details.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\Form.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\Index.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\Info.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\RevisePassword.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\Web.config" />
+    <Content Include="Areas\SalverManager\Views\Warehouse\Form.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Warehouse\Index.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Warehouse\Web.config" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
+    <Content Include="Views\Login\Join.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

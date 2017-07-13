@@ -11,9 +11,23 @@ namespace NFine.Data.Entity.SalverManager
     {
         public int F_Id { get; set; }
 
-        public decimal F_Longitude { get; set; }
+        /// <summary>
+        /// 仓库名称
+        /// </summary>
+        public string F_WarehouseName { get; set; }
 
+        /// <summary>
+        /// 经度
+        /// </summary>
+        public decimal F_Longitude { get; set; }
+        /// <summary>
+        /// 纬度
+        /// </summary>
         public decimal F_Latitude { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string F_Remark { get; set; }
 
         /// <summary>
         /// 承租人Id

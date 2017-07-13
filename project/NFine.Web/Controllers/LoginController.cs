@@ -23,14 +23,72 @@ namespace NFine.Web.Controllers
         [HttpGet]
         public virtual ActionResult Index()
         {
-            var test = string.Format("{0:E2}", 1);
             return View();
+        }
+        [HttpGet]
+        public virtual ActionResult Join()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        [HandlerAjaxOnly]
+        public ActionResult CheckRegister(string username, string password, string code)
+        {
+            LogEntity logEntity = new LogEntity();
+            logEntity.F_ModuleName = "系统登录";
+            logEntity.F_Type = DbLogType.Login.ToString();
+            logEntity.F_CreatorTime = DateTime.Now;
+            try
+            {
+                if (Session["nfine_session_verifycode"].IsEmpty() || Md5.md5(code.ToLower(), 16) != Session["nfine_session_verifycode"].ToString())
+                {
+                    throw new Exception("验证码错误，请重新输入");
+                }
+                var userAppService = new UserApp();
+                if (userAppService.Exists(username))
+                {
+                    return Content(new AjaxResult { state = ResultType.error.ToString(), message = "账号已存在，请换一个账号" }.ToJson());
+                }
+
+                userAppService.SubmitForm(new UserEntity()
+                {
+                    F_Account = username,
+                    F_CreatorTime = DateTime.Now,
+                    F_RoleId = "2691AB91-3010-465F-8D92-60A97425A45E",
+                    F_EnabledMark = true
+                },
+                    new UserLogOnEntity
+                    {
+                        F_UserPassword = password
+                    }, null);
+
+                logEntity.F_Result = true;
+                logEntity.F_Description = "注册成功";
+                new LogApp().WriteDbLog(logEntity);
+
+                return Content(new AjaxResult { state = ResultType.success.ToString(), message = "注册成功。" }.ToJson());
+            }
+            catch (Exception ex)
+            {
+                logEntity.F_Account = username;
+                logEntity.F_NickName = username;
+                logEntity.F_Result = false;
+                logEntity.F_Description = "注册失败，" + ex.Message;
+                new LogApp().WriteDbLog(logEntity);
+                return Content(new AjaxResult { state = ResultType.error.ToString(), message = ex.Message }.ToJson());
+            }
+
+
         }
         [HttpGet]
         public ActionResult GetAuthCode()
         {
             return File(new VerifyCode().GetVerifyCode(), @"image/Gif");
         }
+
+
         [HttpGet]
         public ActionResult OutLogin()
         {
