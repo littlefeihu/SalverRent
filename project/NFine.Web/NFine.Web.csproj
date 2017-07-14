@@ -162,6 +162,7 @@
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\fonts\weathericons-regular-webfont.svg" />
+    <Content Include="Content\img\tuopan.png" />
     <Content Include="Content\img\ajax-loader.gif" />
     <Content Include="Content\img\alipay.jpg" />
     <Content Include="Content\img\alipayimg.png" />
@@ -618,20 +619,22 @@
     <Content Include="Areas\SalverManager\Views\Salver\Form.cshtml" />
     <Content Include="Areas\SalverManager\Views\Salver\Index.cshtml" />
     <Content Include="Areas\SalverManager\Views\Salver\Info.cshtml" />
-    <Content Include="Areas\SalverManager\Views\Salver\RevisePassword.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Areas\SalverManager\Views\Salver\Web.config" />
     <Content Include="Areas\SalverManager\Views\Rental\Details.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\Form.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\Index.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\Info.cshtml" />
-    <Content Include="Areas\SalverManager\Views\Rental\RevisePassword.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\Web.config" />
     <Content Include="Areas\SalverManager\Views\Warehouse\Form.cshtml" />
     <Content Include="Areas\SalverManager\Views\Warehouse\Index.cshtml" />
     <Content Include="Areas\SalverManager\Views\Warehouse\Web.config" />
+    <Content Include="Areas\SalverManager\Views\Salver\PathDetails.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\CreateRental.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\MyRental.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\Login\Join.cshtml" />
+    <Content Include="Views\Shared\_GisLayout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

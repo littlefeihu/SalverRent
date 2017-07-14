@@ -72,5 +72,12 @@ namespace NFine.Web.Areas.SalverManager.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult pathdetails()
+        {
+            return View();
+        }
+
     }
 }

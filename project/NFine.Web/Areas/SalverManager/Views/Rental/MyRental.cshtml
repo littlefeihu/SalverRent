@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_GisLayout.cshtml";
+}
+
+<div id="container" tabindex="0"></div>
+
+<script type="text/javascript">
+    var marker, lineArr = [];
+    var map = new AMap.Map("container", {
+        resizeEnable: true,
+        center: [117.28044, 31.826263],
+        zoom: 9
+    });
+    map.on("complete", completeEventHandler);
+    AMap.event.addDomListener(document.getElementById('start'), 'click', function () {
+        marker.moveAlong(lineArr, 500);
+    }, false);
+    AMap.event.addDomListener(document.getElementById('stop'), 'click', function () {
+        marker.stopMove();
+    }, false);
+
+    // 地图图块加载完毕后执行函数
+    function completeEventHandler() {
+        marker = new AMap.Marker({
+            map: map,
+            position: [117.343681, 31.735405],
+            icon: "",
+            offset: new AMap.Pixel(-26, -13),
+            title: "1号托盘",
+            autoRotation: true
+        });
+        lineArr.push([117.111415, 31.857183]);
+        lineArr.push([117.164882, 31.856202]);
+        lineArr.push([117.191903, 31.825772]);
+        lineArr.push([117.227548, 31.820372]);
+        lineArr.push([117.239621, 31.791895]);
+        lineArr.push([117.208576, 31.762426]);
+        lineArr.push([117.24997, 31.746214]);
+        lineArr.push([117.172931, 31.722628]);
+        lineArr.push([117.218924, 31.695595]);
+        lineArr.push([117.343681, 31.735405]);
+
+        // 绘制轨迹
+        var polyline = new AMap.Polyline({
+            map: map,
+            path: lineArr,
+            strokeColor: "#00A",  //线颜色
+            strokeOpacity: 1,     //线透明度
+            strokeWeight: 3,      //线宽
+            strokeStyle: "solid"  //线样式
+        });
+        map.setFitView();
+    }
+</script>
+

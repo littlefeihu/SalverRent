@@ -1,0 +1,136 @@
+﻿@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_GisLayout.cshtml";
+}
+<style type="text/css">
+    body, html, #container {
+        height: 100%;
+        margin: 0px;
+        font: 12px Arial;
+    }
+
+    .circle {
+        border-radius: 6px;
+        border: solid 1px silver;
+        width: 40px;
+        padding: 1px;
+        font-size: 9px;
+        text-align: center;
+        color: white;
+    }
+
+    .marker {
+        color: white;
+        padding: 4px 10px;
+        border: 1px solid #fff;
+        white-space: nowrap;
+        font-size: 12px;
+        background-color: #0066ff;
+    }
+</style>
+
+<script src="https://webapi.amap.com/js/marker.js"></script>
+<div id="container" tabindex="0"></div>
+
+<script type="text/javascript">
+
+    var map = new AMap.Map('container', { resizeEnable: true, zoom: 9 });
+
+    map.on("complete", completeEventHandler);
+
+
+
+
+    // 地图图块加载完毕后执行函数
+    function completeEventHandler() {
+
+        var lineArr = [];
+        lineArr.push([117.111415, 31.857183]);
+        lineArr.push([117.124882, 31.856202]);
+        lineArr.push([117.119113, 31.860104]);
+        lineArr.push([117.119113, 31.860468]);
+        lineArr.push([117.119127, 31.860281]);
+        lineArr.push([117.118974, 31.860281]);
+        lineArr.push([117.164882, 31.856202]);
+        lineArr.push([117.191903, 31.825772]);
+        lineArr.push([117.227548, 31.820372]);
+        lineArr.push([117.239621, 31.791895]);
+        lineArr.push([117.249721, 31.791895]);
+        lineArr.push([117.208576, 31.762426]);
+        lineArr.push([117.219721, 31.791895]);
+        lineArr.push([117.24997, 31.746214]);
+        lineArr.push([117.252931, 31.722628]);
+        lineArr.push([117.189721, 31.791895]);
+        lineArr.push([117.218924, 31.695595]);
+        lineArr.push([117.343681, 31.735405]);
+
+        for (var i = 0; i < lineArr.length; i++) {
+
+            var title = (i + 1) + "号托盘";
+            var marker = new AMap.Marker({
+                map: map,
+                position: lineArr[i],
+                offset: new AMap.Pixel(-26, -13),
+                title: title
+            });
+
+            // 自定义点标记内容
+            var markerContent = document.createElement("div");
+
+            // 点标记中的图标
+            var markerImg = document.createElement("img");
+            markerImg.className = "markerlnglat";
+            markerImg.src = "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png";
+            markerContent.appendChild(markerImg);
+
+            // 点标记中的文本
+            var markerSpan = document.createElement("span");
+            markerSpan.className = 'marker';
+            markerSpan.innerHTML = title;
+            markerContent.appendChild(markerSpan);
+
+            marker.setContent(markerContent); //更新点标记内容
+
+
+        }
+
+        var warehouseArr = [];
+        warehouseArr.push([117.106622, 31.856209]);
+        warehouseArr.push([117.291745, 31.73099]);
+        warehouseArr.push([117.36361, 31.899382]);
+        for (var i = 0; i < warehouseArr.length; i++) {
+
+            var title = (i + 1) + "号仓库";
+            var marker = new AMap.Marker({
+                map: map,
+                position: warehouseArr[i],
+                offset: new AMap.Pixel(-26, -13),
+                title: title
+            });
+
+            // 自定义点标记内容
+            var markerContent = document.createElement("div");
+
+            // 点标记中的图标
+            var markerImg = document.createElement("img");
+            markerImg.className = "markerlnglat";
+            markerImg.src = "http://webapi.amap.com/theme/v1.3/markers/n/mark_b.png";
+            markerContent.appendChild(markerImg);
+
+            // 点标记中的文本
+            var markerSpan = document.createElement("span");
+            markerSpan.className = 'marker';
+            markerSpan.innerHTML = title;
+            markerContent.appendChild(markerSpan);
+
+            marker.setContent(markerContent);
+
+
+        }
+
+
+        map.setFitView();
+
+    }
+
+</script>

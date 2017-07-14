@@ -72,5 +72,15 @@ namespace NFine.Web.Areas.SalverManager.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public ActionResult CreateRental()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult MyRental()
+        {
+            return View();
+        }
     }
 }
