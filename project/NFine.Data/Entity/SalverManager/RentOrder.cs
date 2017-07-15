@@ -11,6 +11,7 @@ namespace NFine.Data.Entity.SalverManager
     {
         public int F_Id { get; set; }
 
+        public string F_OrderID { get; set; }
         /// <summary>
         /// 承租人Id
         /// </summary>
@@ -34,6 +35,15 @@ namespace NFine.Data.Entity.SalverManager
         /// 订单金额
         /// </summary>
         public decimal Amount { get; set; }
+
+        /// <summary>
+        /// 托盘数量
+        /// </summary>
+        public int F_Count { get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string F_Remark { get; set; }
         /// <summary>
         /// 订单创建时间
         /// </summary>

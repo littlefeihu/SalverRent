@@ -34,6 +34,22 @@
 
 <script type="text/javascript">
 
+
+    function placeOrder() {
+
+        $.modalOpen({
+            id: "PlaceOrderForm",
+            title: "下单",
+            url: "/SalverManager/Rental/PlaceOrderForm",
+            width: "700px",
+            height: "510px",
+            callBack: function (iframeId) {
+                top.frames[iframeId].submitForm();
+            }
+        });
+    }
+
+
     var map = new AMap.Map('container', { resizeEnable: true, zoom: 9 });
 
     map.on("complete", completeEventHandler);
@@ -90,7 +106,7 @@
             markerContent.appendChild(markerSpan);
 
             marker.setContent(markerContent); //更新点标记内容
-
+            marker.on("click", function () { placeOrder(); });
 
         }
 
@@ -124,7 +140,7 @@
             markerContent.appendChild(markerSpan);
 
             marker.setContent(markerContent);
-            marker.on("click", function () { alert("d");});
+            marker.on("click", function () { placeOrder(); });
 
 
         }

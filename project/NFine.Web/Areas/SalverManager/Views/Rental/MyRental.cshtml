@@ -1,56 +1,89 @@
 ﻿@{
-    ViewBag.Title = "Form";
-    Layout = "~/Views/Shared/_GisLayout.cshtml";
+    Layout = "~/Views/Shared/_Index.cshtml";
+
 }
-
-<div id="container" tabindex="0"></div>
-
-<script type="text/javascript">
-    var marker, lineArr = [];
-    var map = new AMap.Map("container", {
-        resizeEnable: true,
-        center: [117.28044, 31.826263],
-        zoom: 9
+<script>
+    $(function () {
+        gridList();
     });
-    map.on("complete", completeEventHandler);
-    AMap.event.addDomListener(document.getElementById('start'), 'click', function () {
-        marker.moveAlong(lineArr, 500);
-    }, false);
-    AMap.event.addDomListener(document.getElementById('stop'), 'click', function () {
-        marker.stopMove();
-    }, false);
 
-    // 地图图块加载完毕后执行函数
-    function completeEventHandler() {
-        marker = new AMap.Marker({
-            map: map,
-            position: [117.343681, 31.735405],
-            icon: "",
-            offset: new AMap.Pixel(-26, -13),
-            title: "1号托盘",
-            autoRotation: true
+    function gridList() {
+        var $gridList = $("#gridList");
+        $gridList.dataGrid({
+            url: "/SalverManager/Rental/GetGridJson",
+            height: $(window).height() - 128,
+            colModel: [
+                { label: '主键', name: 'F_Id', hidden: true },
+                { label: '订单号', name: 'F_OrderID', width: 200, align: 'left' },
+                { label: '托盘数量', name: 'F_Count', width: 200, align: 'left' },
+                { label: '租赁人', name: 'F_Tenant', width: 200, align: 'left' },
+                {
+                    label: '开始时间', name: 'F_RentalStartDate', width: 80, align: 'left',
+                    formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+                },
+                {
+                    label: '结束时间', name: 'F_RentalEndDate', width: 80, align: 'left',
+                    formatter: "date", formatoptions: { srcformat: 'Y-m-d', newformat: 'Y-m-d' }
+                },
+                { label: '备注', name: 'F_Remark', width: 200, align: 'left' }
+            ],
+            pager: "#gridPager",
+            sortname: 'F_OrderID asc,F_CreatorTime desc',
+            viewrecords: true
         });
-        lineArr.push([117.111415, 31.857183]);
-        lineArr.push([117.164882, 31.856202]);
-        lineArr.push([117.191903, 31.825772]);
-        lineArr.push([117.227548, 31.820372]);
-        lineArr.push([117.239621, 31.791895]);
-        lineArr.push([117.208576, 31.762426]);
-        lineArr.push([117.24997, 31.746214]);
-        lineArr.push([117.172931, 31.722628]);
-        lineArr.push([117.218924, 31.695595]);
-        lineArr.push([117.343681, 31.735405]);
-
-        // 绘制轨迹
-        var polyline = new AMap.Polyline({
-            map: map,
-            path: lineArr,
-            strokeColor: "#00A",  //线颜色
-            strokeOpacity: 1,     //线透明度
-            strokeWeight: 3,      //线宽
-            strokeStyle: "solid"  //线样式
+        $("#btn_search").click(function () {
+            $gridList.jqGrid('setGridParam', {
+                postData: { keyword: $("#txt_keyword").val() },
+            }).trigger('reloadGrid');
         });
-        map.setFitView();
     }
+
+
+
+    function btn_details() {
+        var keyValue = $("#gridList").jqGridRowValue().F_Id;
+        $.modalOpen({
+            id: "Details",
+            title: "查看订单明细",
+            url: "/SalverManager/Rental/Details?keyValue=" + keyValue,
+            width: "700px",
+            height: "550px",
+            btn: null,
+        });
+    }
+
 </script>
 
+<div class="topPanel">
+    <div class="toolbar">
+        <div class="btn-group">
+            <a class="btn btn-primary" onclick="$.reload()"><span class="glyphicon glyphicon-refresh"></span></a>
+        </div>
+        <div class="operate">
+            <ul class="nav nav-pills">
+                <li class="first">已选中<span>1</span>项</li>
+                <li><a id="NF-Details" authorize="yes" onclick="btn_details()"><i class="fa fa-search-plus"></i>查看订单明细</a></li>
+            </ul>
+            <a href="javascript:;" class="close"></a>
+        </div>
+        <script>$('.toolbar').authorizeButton()</script>
+    </div>
+    <div class="search">
+        <table>
+            <tr>
+                <td>
+                    <div class="input-group">
+                        <input id="txt_keyword" type="text" class="form-control" placeholder="订单号/备注/租赁人" style="width: 200px;">
+                        <span class="input-group-btn">
+                            <button id="btn_search" type="button" class="btn  btn-primary"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="gridPanel">
+    <table id="gridList"></table>
+    <div id="gridPager"></div>
+</div>

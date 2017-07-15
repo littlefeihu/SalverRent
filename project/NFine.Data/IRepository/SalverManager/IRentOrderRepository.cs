@@ -9,6 +9,7 @@ namespace NFine.Data.IRepository.SalverManager
 {
     public interface IRentOrderRepository : IRepositoryBase<RentOrder>
     {
-        
+        void DeleteForm(int keyValue);
+        void SubmitForm(RentOrder userEntity, int? keyValue);
     }
 }
