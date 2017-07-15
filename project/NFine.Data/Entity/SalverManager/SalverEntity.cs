@@ -9,6 +9,8 @@ namespace NFine.Data.Entity.SalverManager
     public class SalverEntity : Entity<SalverEntity>
     {
         public int F_Id { get; set; }
+  
+        
         /// <summary>
         /// 托盘名称
         /// </summary>

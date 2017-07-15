@@ -19,6 +19,7 @@ namespace NFine.Application.SystemManage
     public class RentalApp
     {
         private IRentOrderRepository service = new RentOrderRepository();
+        private IRentOrderItemRepository orderitemService = new RentalOrderItemRepository();
 
         public List<RentOrder> GetList(Pagination pagination, string keyword, string userid)
         {
@@ -32,6 +33,14 @@ namespace NFine.Application.SystemManage
             }
             return service.FindList(expression, pagination);
         }
+        public List<RentOrderItem> GetOrderItemListByOrderId(Pagination pagination, int orderId)
+        {
+            var expression = ExtLinq.True<RentOrderItem>();
+            expression = expression.And(t => t.F_OrderId.Equals(orderId));
+
+            return orderitemService.FindList(expression, pagination);
+        }
+
         public RentOrder GetForm(int keyValue)
         {
             return service.FindEntity(keyValue);

@@ -22,7 +22,7 @@ namespace NFine.Data.SalverManager
           .WithMany(o => o.OrderItems)
           .HasForeignKey(o => o.F_OrderId);
 
-
+            this.HasRequired(o => o.Salver).WithMany(o => o.RentOrderItems).HasForeignKey(o => o.F_SalverId);
         }
     }
 }

@@ -16,6 +16,13 @@ namespace NFine.Data.Entity.SalverManager
         public int F_SalverId { get; set; }
 
 
+        public string F_SalverName { get; set; }
+        /// <summary>
+        /// 托盘标示
+        /// </summary>
+        public string F_SalverMark { get; set; }
+
+
         public int F_OrderId { get; set; }
 
         public decimal Price { get; set; }

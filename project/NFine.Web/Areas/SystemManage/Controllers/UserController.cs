@@ -100,5 +100,12 @@ namespace NFine.Web.Areas.SystemManage.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult FullFilForm()
+        {
+            return View();
+        }
+        
     }
 }

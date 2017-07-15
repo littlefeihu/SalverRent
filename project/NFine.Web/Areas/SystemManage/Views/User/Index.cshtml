@@ -25,6 +25,7 @@
                         }
                     }
                 },
+                { label: '余额', name: 'F_Balance', width: 80, align: 'left' },
                 { label: '手机', name: 'F_MobilePhone', width: 80, align: 'left' },
                 {
                     label: '公司', name: 'F_OrganizeId', width: 150, align: 'left',
@@ -115,6 +116,19 @@
             btn: null,
         });
     }
+    function btn_FullFil() {
+        var keyValue = $("#gridList").jqGridRowValue().F_Id;
+        $.modalOpen({
+            id: "Form",
+            title: "给用户充值",
+            url: "/SystemManage/User/FullFilForm?keyValue=" + keyValue,
+            width: "700px",
+            height: "550px",
+            callBack: function (iframeId) {
+                top.frames[iframeId].submitForm();
+            }
+        });
+    }
     function btn_revisepassword() {
         var keyValue = $("#gridList").jqGridRowValue().F_Id;
         var Account = $("#gridList").jqGridRowValue().F_Account;
@@ -179,6 +193,7 @@
                 <li class="split"></li>
                 <li><a id="NF-disabled" authorize="yes" onclick="btn_disabled()"><i class="fa fa-stop-circle"></i>禁用</a></li>
                 <li><a id="NF-enabled" authorize="yes" onclick="btn_enabled()"><i class="fa fa-play-circle"></i>启用</a></li>
+                <li><a id="NF-FullFil" authorize="yes" onclick="btn_FullFil()"><i class="fa fa-search-plus"></i>给用户充值</a></li>
             </ul>
             <a href="javascript:;" class="close"></a>
         </div>

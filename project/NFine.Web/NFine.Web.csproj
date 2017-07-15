@@ -622,7 +622,7 @@
     <Content Include="Areas\SalverManager\Views\Salver\Info.cshtml" />
     <Content Include="packages.config" />
     <Content Include="Areas\SalverManager\Views\Salver\Web.config" />
-    <Content Include="Areas\SalverManager\Views\Rental\Details.cshtml" />
+    <Content Include="Areas\SalverManager\Views\Rental\RentalDetails.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\Form.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\Index.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\Info.cshtml" />
@@ -634,6 +634,7 @@
     <Content Include="Areas\SalverManager\Views\Rental\CreateRental.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\MyRental.cshtml" />
     <Content Include="Areas\SalverManager\Views\Rental\PlaceOrderForm.cshtml" />
+    <Content Include="Areas\SystemManage\Views\User\FullFilForm.cshtml" />
     <None Include="Properties\PublishProfiles\NFine.Framework.Release.pubxml" />
     <Content Include="Views\Login\Join.cshtml" />
     <Content Include="Views\Shared\_GisLayout.cshtml" />

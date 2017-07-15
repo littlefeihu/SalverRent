@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_Index.cshtml";
+}
+<script>
+    var keyValue = $.request("keyValue");
+
+    $(function () {
+        gridList();
+    });
+
+    function gridList() {
+        var $gridList = $("#gridList");
+        $gridList.dataGrid({
+            url: "/SalverManager/Rental/GetGridJsonByOrderId?orderid=" + keyValue,
+            height: $(window).height() - 128,
+            colModel: [
+                { label: '主键', name: 'F_Id', hidden: true },
+                { label: '托盘名称', name: 'F_SalverName', width: 100, align: 'left' },
+                { label: '托盘标识', name: 'F_SalverMark', width: 100, align: 'left' },
+                { label: '备注', name: 'F_Remark', width: 200, align: 'left' }
+            ],
+            pager: "#gridPager",
+            sortname: 'F_SalverName asc,F_CreatorTime desc',
+            viewrecords: true
+        });
+
+    }
+
+
+</script>
+<div class="gridPanel">
+    <table id="gridList"></table>
+    <div id="gridPager"></div>
+</div>

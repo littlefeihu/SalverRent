@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalverManager\RentalOrderItemRepository.cs" />
     <Compile Include="SalverManager\RentalRepository.cs" />
     <Compile Include="SalverManager\WarehouseRepository.cs" />
     <Compile Include="SalverManager\SalverRepository.cs" />

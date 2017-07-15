@@ -28,6 +28,28 @@ namespace NFine.Web.Areas.SalverManager.Controllers
             };
             return Content(data.ToJson());
         }
+
+
+
+        [HttpGet]
+        [HandlerAjaxOnly]
+        public ActionResult GetGridJsonByOrderId(Pagination pagination,  int orderid)
+        {
+            var data = new
+            {
+                rows = rentalApp.GetOrderItemListByOrderId(pagination, orderid),
+                total = pagination.total,
+                page = pagination.page,
+                records = pagination.records
+            };
+            return Content(data.ToJson());
+        }
+        [HttpGet]
+        public ActionResult RentalDetails( )
+        {
+            return View();
+        }
+
         [HttpGet]
         [HandlerAjaxOnly]
         public ActionResult GetFormJson(int keyValue)
