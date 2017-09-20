@@ -81,7 +81,7 @@
       <publishTime>08/19/2016 22:25:16</publishTime>
     </File>
     <File Include="Areas/SalverManager/Views/Rental/CreateRental.cshtml">
-      <publishTime>07/14/2017 14:55:32</publishTime>
+      <publishTime>07/17/2017 09:18:12</publishTime>
     </File>
     <File Include="Areas/SalverManager/Views/Rental/Details.cshtml">
       <publishTime>07/13/2017 13:41:30</publishTime>
@@ -96,7 +96,13 @@
       <publishTime>07/13/2017 13:41:30</publishTime>
     </File>
     <File Include="Areas/SalverManager/Views/Rental/MyRental.cshtml">
-      <publishTime>07/14/2017 13:33:55</publishTime>
+      <publishTime>07/17/2017 09:18:12</publishTime>
+    </File>
+    <File Include="Areas/SalverManager/Views/Rental/PlaceOrderForm.cshtml">
+      <publishTime>07/17/2017 09:18:12</publishTime>
+    </File>
+    <File Include="Areas/SalverManager/Views/Rental/RentalDetails.cshtml">
+      <publishTime>07/17/2017 09:18:12</publishTime>
     </File>
     <File Include="Areas/SalverManager/Views/Rental/Web.config">
       <publishTime>07/13/2017 13:41:30</publishTime>
@@ -206,11 +212,14 @@
     <File Include="Areas/SystemManage/Views/User/Form.cshtml">
       <publishTime>07/13/2017 11:23:29</publishTime>
     </File>
+    <File Include="Areas/SystemManage/Views/User/FullFilForm.cshtml">
+      <publishTime>07/17/2017 09:18:12</publishTime>
+    </File>
     <File Include="Areas/SystemManage/Views/User/Index.cshtml">
-      <publishTime>07/12/2017 15:54:40</publishTime>
+      <publishTime>07/17/2017 09:18:12</publishTime>
     </File>
     <File Include="Areas/SystemManage/Views/User/Info.cshtml">
-      <publishTime>08/19/2016 22:25:16</publishTime>
+      <publishTime>07/17/2017 09:18:12</publishTime>
     </File>
     <File Include="Areas/SystemManage/Views/User/RevisePassword.cshtml">
       <publishTime>08/19/2016 22:25:16</publishTime>
@@ -264,25 +273,25 @@
       <publishTime>08/19/2016 22:25:16</publishTime>
     </File>
     <File Include="bin/NFine.Application.dll">
-      <publishTime>07/14/2017 14:59:24</publishTime>
+      <publishTime>07/17/2017 09:24:27</publishTime>
     </File>
     <File Include="bin/NFine.Code.dll">
       <publishTime>07/14/2017 14:59:23</publishTime>
     </File>
     <File Include="bin/NFine.Data.dll">
-      <publishTime>07/14/2017 14:59:23</publishTime>
+      <publishTime>07/17/2017 09:24:26</publishTime>
     </File>
     <File Include="bin/NFine.Domain.dll">
-      <publishTime>07/14/2017 14:59:24</publishTime>
+      <publishTime>07/17/2017 09:24:26</publishTime>
     </File>
     <File Include="bin/NFine.Mapping.dll">
       <publishTime>08/05/2016 14:04:39</publishTime>
     </File>
     <File Include="bin/NFine.Repository.dll">
-      <publishTime>07/14/2017 14:59:24</publishTime>
+      <publishTime>07/17/2017 09:24:27</publishTime>
     </File>
     <File Include="bin/NFine.Web.dll">
-      <publishTime>07/14/2017 14:59:25</publishTime>
+      <publishTime>07/17/2017 09:24:28</publishTime>
     </File>
     <File Include="bin/NPOI.dll">
       <publishTime>08/19/2016 22:25:16</publishTime>
@@ -1107,7 +1116,7 @@
       <publishTime>07/12/2017 14:30:16</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/13/2017 11:23:27</publishTime>
+      <publishTime>07/17/2017 09:18:12</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>07/13/2017 11:30:40</publishTime>
@@ -1119,7 +1128,7 @@
       <publishTime>07/14/2017 13:13:50</publishTime>
     </File>
     <File Include="Views/Shared/_GisLayout.cshtml">
-      <publishTime>07/14/2017 13:28:48</publishTime>
+      <publishTime>07/17/2017 09:18:12</publishTime>
     </File>
     <File Include="Views/Shared/_Index.cshtml">
       <publishTime>07/11/2017 09:33:37</publishTime>

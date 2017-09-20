@@ -57,6 +57,7 @@
 
 
 
+
     // 地图图块加载完毕后执行函数
     function completeEventHandler() {
 
@@ -79,36 +80,56 @@
         lineArr.push([117.189721, 31.791895]);
         lineArr.push([117.218924, 31.695595]);
         lineArr.push([117.343681, 31.735405]);
+        AMapUI.loadUI(['overlay/SimpleInfoWindow'], function (SimpleInfoWindow) {
 
-        for (var i = 0; i < lineArr.length; i++) {
 
-            var title = (i + 1) + "号托盘";
-            var marker = new AMap.Marker({
-                map: map,
-                position: lineArr[i],
-                offset: new AMap.Pixel(-26, -13),
-                title: title
-            });
+            for (var i = 0; i < lineArr.length; i++) {
 
-            // 自定义点标记内容
-            var markerContent = document.createElement("div");
 
-            // 点标记中的图标
-            var markerImg = document.createElement("img");
-            markerImg.className = "markerlnglat";
-            markerImg.src = "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png";
-            markerContent.appendChild(markerImg);
+                var infoWindow = new SimpleInfoWindow({
 
-            // 点标记中的文本
-            var markerSpan = document.createElement("span");
-            markerSpan.className = 'marker';
-            markerSpan.innerHTML = title;
-            markerContent.appendChild(markerSpan);
+                    infoTitle: '<strong>这里是标题</strong>',
+                    infoBody: '<p class="my-desc"><strong>这里是内容。</strong> <br/> 高德地图 JavaScript API，是由 JavaScript 语言编写的应用程序接口，' +
+                        '它能够帮助您在网站或移动端中构建功能丰富、交互性强的地图应用程序</p>',
 
-            marker.setContent(markerContent); //更新点标记内容
-            marker.on("click", function () { placeOrder(); });
+                    //基点指向marker的头部位置
+                    offset: new AMap.Pixel(0, -31)
+                });
+                var title = (i + 1) + "号托盘";
+                var marker = new AMap.Marker({
+                    map: map,
+                    position: lineArr[i],
+                    offset: new AMap.Pixel(-26, -13),
+                    title: title
+                });
 
-        }
+                // 自定义点标记内容
+                var markerContent = document.createElement("div");
+
+                // 点标记中的图标
+                var markerImg = document.createElement("img");
+                markerImg.className = "markerlnglat";
+                markerImg.src = "http://webapi.amap.com/theme/v1.3/markers/n/mark_r.png";
+                markerContent.appendChild(markerImg);
+
+                // 点标记中的文本
+                var markerSpan = document.createElement("span");
+                markerSpan.className = 'marker';
+                markerSpan.innerHTML = title;
+                markerContent.appendChild(markerSpan);
+
+                marker.setContent(markerContent); //更新点标记内容
+                marker.on("click", function (e) {
+
+                    infoWindow.setContent(this.getTitle());
+                    infoWindow.open(map, this.getPosition());
+                });
+
+            }
+
+
+        });
+
 
         var warehouseArr = [];
         warehouseArr.push([117.106622, 31.856209]);
